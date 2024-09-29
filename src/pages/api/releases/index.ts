@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     // Fetch all releases
     const { data, error } = await supabase
-      // @ts-expect-error
+      // @ts-expect-error - Supabase query method expects two type parameters, but we only provide one to match the Release schema
       .from<Release>('releases')
       .select('*');
 
