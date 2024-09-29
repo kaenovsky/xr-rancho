@@ -38,11 +38,20 @@ export default function HomePage() {
     checkSession()
   }, [])
 
-  // Handle GitHub OAuth login
   const handleLogin = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({ provider: 'github' })
-    if (error) console.error('Login Error:', error.message)
-  }
+    const redirectTo = 
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'https://xr-rancho.vercel.app';
+  
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: { redirectTo }
+    });
+    
+    if (error) console.error('Login Error:', error.message);
+  };
+  
 
   // Handle logout
   const handleLogout = async () => {
@@ -118,7 +127,7 @@ export default function HomePage() {
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center">
                 {/* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */}                
-                {user?.user_metadata?.avatar_url ? {/* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */} (                  
+                {user?.user_metadata?.avatar_url ? /* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */ (                  
                   <img src={user.user_metadata.avatar_url} alt="User Avatar" className="w-full h-full rounded-full" />
                 ) : (
                   <User className="w-6 h-6" />
