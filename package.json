@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "NEXT_PUBLIC_IGNORE_BUILD_ERRORS=true next build",
+    "vercel-build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
