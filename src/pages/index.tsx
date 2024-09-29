@@ -31,7 +31,7 @@ export default function HomePage() {
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession()
       setIsLoggedIn(!!session)
-      // @ts-expect-error
+      // @ts-expect-error - Assuming user is typed correctly from Supabase, and should have 'user'
       setUser(session?.user || null)
       fetchReleases() // Fetch releases on component mount
     }
@@ -53,7 +53,7 @@ export default function HomePage() {
 
   const isAdmin = () => {
     // Check if the user's ID or email matches the admin credentials
-    // @ts-expect-error
+    // @ts-expect-error - Assuming user is typed correctly from Supabase, and should have 'id'
     return user?.id === process.env.NEXT_PUBLIC_ADMIN_GITHUB_ID;
   };
   
@@ -117,8 +117,8 @@ export default function HomePage() {
           {isLoggedIn ? (
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center">
-                {/* @ts-expect-error */}                
-                {user?.user_metadata?.avatar_url ? {/* @ts-expect-error */} (                  
+                {/* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */}                
+                {user?.user_metadata?.avatar_url ? {/* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */} (                  
                   <img src={user.user_metadata.avatar_url} alt="User Avatar" className="w-full h-full rounded-full" />
                 ) : (
                   <User className="w-6 h-6" />
