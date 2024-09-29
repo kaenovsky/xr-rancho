@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     // Fetch all releases
     const { data, error } = await supabase
-      // @ts-ignore
+      // @ts-expect-error
       .from<Release>('releases')
       .select('*');
 
@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Insert the new release
     const { data: insertedData, error: insertError } = await supabase
-      // @ts-ignore
+      // @ts-expect-error
       .from<Release>('releases')
       .insert([{ version, description, download_link }])
       .select('*'); // This will return the inserted row
@@ -56,7 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Update the existing release
     const { data: updatedData, error: updateError } = await supabase
-      // @ts-ignore
+      // @ts-expect-error
       .from<Release>('releases')
       .update({ version, description, download_link })
       .eq('id', id)
@@ -83,6 +83,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { id } = req.body;
 
     const { error: deleteError } = await supabase
+      // @ts-expect-error
       .from<Release>('releases')
       .delete()
       .eq('id', id);

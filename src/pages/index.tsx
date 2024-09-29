@@ -31,6 +31,7 @@ export default function HomePage() {
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession()
       setIsLoggedIn(!!session)
+      // @ts-expect-error
       setUser(session?.user || null)
       fetchReleases() // Fetch releases on component mount
     }
@@ -52,6 +53,7 @@ export default function HomePage() {
 
   const isAdmin = () => {
     // Check if the user's ID or email matches the admin credentials
+    // @ts-expect-error
     return user?.id === process.env.NEXT_PUBLIC_ADMIN_GITHUB_ID;
   };
   
@@ -94,7 +96,7 @@ export default function HomePage() {
     }
   }
 
-  // Handle delete release (same as before)
+  // Handle delete release
   const handleDelete = async (id: string) => {
     const response = await fetch(`/api/releases/${id}`, {
       method: 'DELETE',
@@ -115,7 +117,8 @@ export default function HomePage() {
           {isLoggedIn ? (
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center">
-                {user?.user_metadata?.avatar_url ? (
+                {/* @ts-expect-error */}                
+                {user?.user_metadata?.avatar_url ? {/* @ts-expect-error */} (                  
                   <img src={user.user_metadata.avatar_url} alt="User Avatar" className="w-full h-full rounded-full" />
                 ) : (
                   <User className="w-6 h-6" />
