@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* Navbar */}
       <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold flex items-center">
-        <Satellite className='mr-2' />Beer Pong XR
+        <Satellite className="mr-2" /> Beer Pong XR
         </h1>
         <div>
           {isLoggedIn ? (
@@ -267,19 +267,19 @@ export default function HomePage() {
               {[
                 {
                   title: "🥽 Target Device",
-                  content: "Meta Quest 2 - A low cost device for XR",
+                  content: "Meta Quest 2, a low cost device for XR.",
                   image: "/quest2.jpg?height=200&width=400",
                   alt: "Meta Quest 2 headset"
                 },
                 {
                   title: "🌟 Game Mode",
-                  content: "Single player Beer Pong - Feel the vastness of outer space",
+                  content: "Single player Beer Pong. Feel the vastness of outer space.",
                   image: "/space.jpg?height=200&width=400",
                   alt: "Image of NASA's satellite"
                 },
                 {
                   title: "🥚 Alpha Release",
-                  content: "You are trying an early version of the game, thank you so much!",
+                  content: "You are testing an early version of the game, thank you so much!",
                   image: "/releases.jpg?height=200&width=400",
                   alt: "Eggs in nest"
                 }
