@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import supabase from '../utils/supabaseClient'
-import { Beer, Download, Edit2, Trash2, User } from 'lucide-react'
+import { Satellite, Download, Edit2, Trash2, User } from 'lucide-react'
 
 // Define the type for the release structure
 interface Release {
@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* Navbar */}
       <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold flex items-center">
-          <Beer className="mr-2" /> Beer Pong XR
+        <Satellite className='mr-2' />Beer Pong XR
         </h1>
         <div>
           {isLoggedIn ? (
@@ -160,7 +160,7 @@ export default function HomePage() {
             🍻 Beer Pong XR 🚀
           </h2>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl drop-shadow-md">
-            Experience intergalactic beer pong on your Meta Quest 2. Challenge friends across the cosmos!
+            Experience intergalactic beer pong on your Meta Quest 2.
           </p>
           <a
             href="#download"
@@ -267,21 +267,21 @@ export default function HomePage() {
               {[
                 {
                   title: "🥽 Target Device",
-                  content: "Meta Quest 2 - Your portal to virtual beer pong realms",
+                  content: "Meta Quest 2 - A low cost device for XR",
                   image: "/quest2.jpg?height=200&width=400",
                   alt: "Meta Quest 2 headset"
                 },
                 {
                   title: "🌟 Game Mode",
-                  content: "Multiplayer Beer Pong - Compete with friends across the galaxy",
-                  image: "/avatars.jpg?height=200&width=400",
-                  alt: "Multiplayer beer pong game"
+                  content: "Single player Beer Pong - Feel the vastness of outer space",
+                  image: "/space.jpg?height=200&width=400",
+                  alt: "Image of NASA's satellite"
                 },
                 {
-                  title: "🚀 Release Frequency",
-                  content: "Monthly Updates - New cosmic challenges every lunar cycle",
+                  title: "🥚 Alpha Release",
+                  content: "You are trying an early version of the game, thank you so much!",
                   image: "/releases.jpg?height=200&width=400",
-                  alt: "Calendar with rocket"
+                  alt: "Eggs in nest"
                 }
               ].map((feature, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
@@ -302,7 +302,7 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-gray-800 text-center p-6 mt-12">
-        <p>© 2024 Beer Pong XR. All rights reserved. 🍺🎮</p>
+        <p>2024 Beer Pong XR. 🍺🎮</p>
         <p className="mt-2">Drink responsibly, play virtually! 🌠</p>
       </footer>
     </div>
