@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* Navbar */}
       <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold flex items-center">
-        <Satellite className="mr-2" /> Beer Pong XR
+        <Satellite className="mr-2" /> Beer Pong VR
         </h1>
         <div>
           {isLoggedIn ? (
@@ -157,7 +157,7 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-            🍻 Beer Pong XR 🚀
+            Beer Pong VR 🚀
           </h2>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl drop-shadow-md">
             Experience intergalactic beer pong on your Meta Quest 2.
@@ -279,7 +279,7 @@ export default function HomePage() {
                 },
                 {
                   title: "🥚 Alpha Release",
-                  content: "You are testing an early version of the game, thank you so much!",
+                  content: "You are testing an early version of the game.",
                   image: "/releases.jpg?height=200&width=400",
                   alt: "Eggs in nest"
                 }
@@ -302,7 +302,7 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-gray-800 text-center p-6 mt-12">
-        <p>2024 Beer Pong XR. 🍺🎮</p>
+        <p>2024 Beer Pong VR. 🍺🎮</p>
         <p className="mt-2">Drink responsibly, play virtually! 🌠</p>
       </footer>
     </div>
