@@ -299,6 +299,28 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        {/* Video Section */}
+        <section className="py-16 bg-gray-900">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8 text-center text-white">Demo</h2>
+            <div className="max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+              <video 
+                className="w-full h-auto"
+                controls
+                preload="metadata"
+                poster="/placeholder.svg?height=720&width=1280"
+              >
+                <source src="/beer-pong-xr-gameplay.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-6">
+                <p className="text-gray-300 text-center">
+                  Watch the gameplay to know more about this beer pong in space experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="bg-gray-800 text-center p-6 mt-12">
