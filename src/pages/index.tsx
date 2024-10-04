@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import supabase from '../utils/supabaseClient'
-import { Satellite, Download, Edit2, Trash2, User } from 'lucide-react'
+import { Satellite, Github, Download, Edit2, Trash2, User } from 'lucide-react'
 
 // Define the type for the release structure
 interface Release {
@@ -266,8 +266,8 @@ export default function HomePage() {
             <div className="grid gap-8 md:grid-cols-3">
               {[
                 {
-                  title: "🥽 Target Device",
-                  content: "Meta Quest 2, a low cost device for XR.",
+                  title: "🥽 Target Devices",
+                  content: "Meta Quest 2 & 3 available.",
                   image: "/quest2.jpg?height=200&width=400",
                   alt: "Meta Quest 2 headset"
                 },
@@ -325,7 +325,16 @@ export default function HomePage() {
 
       <footer className="bg-gray-800 text-center p-6 mt-12">
         <p>2024 Beer Pong VR. 🍺🎮</p>
-        <p className="mt-2">Drink responsibly, play virtually! 🌠</p>
+        <p className="mt-2 mb-4">Drink responsibly, play virtually! 🌠</p>
+        <a
+          href="https://github.com/kaenovsky/xr-rancho"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors duration-300"
+        >
+        <Github className="mr-2" />
+          Star us on GitHub
+        </a>
       </footer>
     </div>
   )
