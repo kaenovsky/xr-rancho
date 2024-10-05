@@ -2,7 +2,7 @@
 Proyecto integrador de la carrera Tec. en Desarrollo de Software
 
 ## Sobre el proyecto
-Es un videojuego para Meta Quest 2 donde podemos embocar pelotitas de ping pong dentro de unos vasos de plástico, similar al popular juego social 'beer pong'. La particularidad es que estamos en el espacio, cerca de la tierra a la que vemos orbitar junto a la luna. Si desactivamos la gravedad, los vasos flotan en el espacio y podemos apuntarles con las pelotitas mientras giran en el vacío.
+Es una experiencia de realidad virtual para Meta Quest 2 y 3 donde podemos embocar pelotitas de ping pong dentro de unos vasos de plástico, similar al popular juego social 'beer pong'. La particularidad es que estamos en el espacio, cerca de la tierra y la luna. Si desactivamos la gravedad, los vasos flotan en el espacio y podemos apuntarles con las pelotitas mientras giran en el vacío.
 
 ![demo gameplay](./snapshot.png)
 

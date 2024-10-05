@@ -160,11 +160,11 @@ export default function HomePage() {
             Beer Pong VR 🚀
           </h2>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl drop-shadow-md">
-            Experience intergalactic beer pong on your Meta Quest 2.
+            Experience intergalactic beer pong on Meta Quest.
           </p>
           <a
             href="#download"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded text-lg transition duration-300 ease-in-out transform hover:scale-105"
           >
             Download Game
           </a>
