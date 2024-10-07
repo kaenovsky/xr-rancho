@@ -154,15 +154,8 @@ export default function HomePage() {
       </section>
 
       {/* Hero Section */}
-      <header id="hero" className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/hero.png?height=1080&width=1920"
-            alt="Spacepong XR Gameplay"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black opacity-60"></div>
-        </div>
+      <header id="hero" className="relative h-screen w-full overflow-hidden bg-fixed bg-center bg-cover" style={{ backgroundImage: "url('/hero.png')" }}>
+        <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">Spacepong VR 🚀</h2>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl drop-shadow-md">
