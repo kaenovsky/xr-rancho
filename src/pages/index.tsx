@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import supabase from '../utils/supabaseClient'
-import { Satellite, Github, Download, Edit2, Trash2, User } from 'lucide-react'
+import { Github, Download, Edit2, Trash2, User } from 'lucide-react'
 
 // Define the type for the release structure
 interface Release {
