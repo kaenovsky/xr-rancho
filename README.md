@@ -24,6 +24,9 @@ El promo site está hecho en Nextjs con TypeScript. La base de datos (que tambi�
 ## Deploy
 Vía vercel: https://xr-rancho.vercel.app/
 
+## Disponible en Sidequest Store
+Link de la página de distribución: https://sidequestvr.com/app/38206/space-pong
+
 ## Atribuciones
 
 - Foto de <a href="https://unsplash.com/es/@leonidasph?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Adrià García Sarceda</a> en <a href="https://unsplash.com/es/fotos/una-mujer-sosteniendo-un-controlador-de-videojuegos-en-la-mano-O560d5Mnc04?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

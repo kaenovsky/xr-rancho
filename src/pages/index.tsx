@@ -117,64 +117,70 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
+      
       {/* Navbar */}
-      <nav className="bg-gray-800 p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold flex items-center">
-        <Satellite className="mr-2" /> Beer Pong VR
-        </h1>
-        <div>
-          {isLoggedIn ? (
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center">
-                {/* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */}                
-                {user?.user_metadata?.avatar_url ? /* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */ (                  
-                  <img src={user.user_metadata.avatar_url} alt="User Avatar" className="w-full h-full rounded-full" />
-                ) : (
-                  <User className="w-6 h-6" />
-                )}
-              </div>
-              <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-                Logout
-              </button>
-            </div>
-          ) : (
-            <button onClick={handleLogin} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-              Login with GitHub
-            </button>
-          )}
-        </div>
+      <nav id="navbar" className="bg-gray-800 p-4 flex justify-between items-center">
+
+      <h1 className="text-xl font-bold flex items-center">
+        <img
+          src="/icon-small.png"
+          alt="Spacepong VR icon"
+          className="w-12 h-12 mr-2"
+        />
+        Spacepong VR
+      </h1>
       </nav>
 
+      {/* Now on Sidequest banner */}
+      <section id="banner" className="sticky top-0 z-50">
+        <div className="w-full bg-gradient-to-r from-[#101227] to-[#4C518B] text-white py-4 px-4 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+          <p className="font-medium text-center sm:text-left">
+            <span className="md:hidden">Spacepong VR on SideQuest!</span>
+            <span className="hidden md:inline">Spacepong VR is now available on the SideQuest store!</span>
+          </p>
+          <a
+            href="https://sidequestvr.com/app/38206"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <img 
+              src="https://sidequestvr.com/assets/images/branding/Get-it-on-SIDEQUEST.png" 
+              alt="Get it on SideQuest" 
+              className="h-10 w-auto"
+            />
+          </a>
+        </div>      
+      </section>
+
       {/* Hero Section */}
-      <header className="relative h-screen w-full overflow-hidden">
+      <header id="hero" className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero.jpg?height=1080&width=1920"
-            alt="Beer Pong XR Gameplay"
+            src="/hero.png?height=1080&width=1920"
+            alt="Spacepong XR Gameplay"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black opacity-60"></div>
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-            Beer Pong VR 🚀
-          </h2>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">Spacepong VR 🚀</h2>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl drop-shadow-md">
             Experience intergalactic beer pong on Meta Quest.
           </p>
           <a
-            href="#download"
+            href="#video"
             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded text-lg transition duration-300 ease-in-out transform hover:scale-105"
           >
-            Download Game
+            Watch Gameplay
           </a>
         </div>
       </header>
 
       {/* Releases Section */}
-      <main className="container mx-auto px-4 py-8" id="download">
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Download</h2>
+      <main className="container mx-auto px-4 py-8">
+        <section id="releases" className="mb-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">Download release files (.apk)</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {releases.map((release, index) => (
               <div key={release.id} className={`bg-gray-800 rounded-lg shadow-lg overflow-hidden ${index === 0 ? 'ring-2 ring-blue-500' : 'opacity-80'}`}>
@@ -260,7 +266,7 @@ export default function HomePage() {
         )}
 
         {/* Features Section */}
-        <section className="py-12 bg-gray-900">
+        <section id="features" className="py-12 bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center text-white">Game Features</h2>
             <div className="grid gap-8 md:grid-cols-3">
@@ -268,19 +274,19 @@ export default function HomePage() {
                 {
                   title: "🥽 Target Devices",
                   content: "Meta Quest 2 & 3 available.",
-                  image: "/quest2.jpg?height=200&width=400",
+                  image: "/img-bar-meta.png?height=200&width=400",
                   alt: "Meta Quest 2 headset"
                 },
                 {
                   title: "🌟 Game Mode",
                   content: "Single player Beer Pong. Feel the vastness of outer space.",
-                  image: "/space.jpg?height=200&width=400",
+                  image: "/img-bar-game.png?height=200&width=400",
                   alt: "Image of NASA's satellite"
                 },
                 {
                   title: "🥚 Alpha Release",
                   content: "You are testing an early version of the game.",
-                  image: "/releases.jpg?height=200&width=400",
+                  image: "/img-bar-test.png?height=200&width=400",
                   alt: "Eggs in nest"
                 }
               ].map((feature, index) => (
@@ -300,7 +306,7 @@ export default function HomePage() {
           </div>
         </section>
         {/* Video Section */}
-        <section className="py-16 bg-gray-900">
+        <section id="video" className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center text-white">Demo</h2>
             <div className="max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden">
@@ -308,7 +314,7 @@ export default function HomePage() {
                 className="w-full h-auto"
                 controls
                 preload="metadata"
-                poster="/placeholder.svg?height=720&width=1280"
+                poster="/video-placeholder.png?height=720&width=1280"
               >
                 <source src="/beer-pong-xr-gameplay.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -321,20 +327,60 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <section>
+          <div className='text-center'>
+            <h2 className="text-3xl font-bold mb-8 text-center">Contribute</h2>
+            <a
+              href="https://github.com/kaenovsky/xr-rancho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors duration-300"
+            >
+            <Github className="mr-2" />
+              Follow up on GitHub
+            </a>
+          </div>
+        </section>
       </main>
 
-      <footer className="bg-gray-800 text-center p-6 mt-12">
-        <p>2024 Beer Pong VR. 🍺🎮</p>
-        <p className="mt-2 mb-4">Drink responsibly, play virtually! 🌠</p>
-        <a
-          href="https://github.com/kaenovsky/xr-rancho"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors duration-300"
-        >
-        <Github className="mr-2" />
-          Star us on GitHub
-        </a>
+      <footer id="footer" className="bg-gray-800 text-center mt-12">
+        <p className="pt-6">2024 Spacepong VR. 🍺🎮</p>
+        <p className="mt-2 pb-6">Drink responsibly, play virtually! 🌠</p>
+
+        {/* Admin Bar */}
+        <div className="w-full bg-black text-gray-300 py-3 px-4 flex items-center justify-between mt-6">
+          <div className="flex items-center space-x-2">
+            <span className="text-gray-400">🔒 Admin Access</span>
+          </div>
+          <div>
+            {isLoggedIn ? (
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center">
+                  {/* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */}
+                  {user?.user_metadata?.avatar_url ? (
+                    /* @ts-expect-error - Assuming user_metadata is typed correctly from Supabase, and should have 'avatar_url' */
+                    <img src={user.user_metadata.avatar_url} alt="User Avatar" className="w-full h-full rounded-full" />
+                  ) : (
+                    <User className="w-5 h-5 text-gray-400" />
+                  )}
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="bg-gray-700 hover:bg-gray-600 text-gray-300 font-semibold py-1 px-3 rounded flex items-center space-x-1"
+                >
+                  <span>Logout</span>
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={handleLogin}
+                className="bg-gray-700 hover:bg-gray-600 text-gray-300 font-semibold py-1 px-3 rounded flex items-center space-x-1"
+              >
+                <span>Login with GitHub</span>
+              </button>
+            )}
+          </div>
+        </div>
       </footer>
     </div>
   )
