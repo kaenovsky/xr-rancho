@@ -338,7 +338,7 @@ export default function HomePage() {
 
       <footer id="footer" className="bg-gray-800 text-center mt-12">
         <p className="pt-6">2024 Spacepong VR. 🍺🎮</p>
-        <p className="mt-2 pb-6">Drink responsibly, play virtually! 🌠</p>
+        <p className="mt-2 pb-3">Drink responsibly, play virtually! 🌠</p>
 
         {/* Admin Bar */}
         <div className="w-full bg-black text-gray-300 py-3 px-4 flex items-center justify-between mt-6">
