@@ -19,8 +19,13 @@ export default function ReleasesPage() {
   // Check user session on mount
   useEffect(() => {
     const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setIsLoggedIn(!!session); // Set login state based on session
+      if (!supabase) return;
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        setIsLoggedIn(!!session); // Set login state based on session
+      } catch (err) {
+        console.error('Session check failed:', err);
+      }
     };
 
     checkUser();
@@ -29,13 +34,24 @@ export default function ReleasesPage() {
 
   // Function to fetch all releases
   const fetchReleases = async () => {
-    const response = await fetch('/api/releases');
-    const data = await response.json();
-    setReleases(data);
+    try {
+      const response = await fetch('/api/releases');
+      if (!response.ok) {
+        console.error('Failed to fetch releases:', response.status);
+        setReleases([]);
+        return;
+      }
+      const data = await response.json();
+      setReleases(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error('Failed to fetch releases:', err);
+      setReleases([]);
+    }
   };
 
   // Handle GitHub OAuth login
   const handleLogin = async () => {
+    if (!supabase) return;
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
@@ -47,6 +63,7 @@ export default function ReleasesPage() {
 
   // Handle logout
   const handleLogout = async () => {
+    if (!supabase) return;
     await supabase.auth.signOut();
     setIsLoggedIn(false);
   };

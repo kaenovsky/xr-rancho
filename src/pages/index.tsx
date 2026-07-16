@@ -21,40 +21,58 @@ export default function HomePage() {
 
   // Function to fetch all releases
   const fetchReleases = async () => {
-    const response = await fetch('/api/releases')
-    const data = await response.json()
-    setReleases(data)
+    try {
+      const response = await fetch('/api/releases')
+      if (!response.ok) {
+        console.error('Failed to fetch releases:', response.status)
+        setReleases([])
+        return
+      }
+      const data = await response.json()
+      setReleases(Array.isArray(data) ? data : [])
+    } catch (err) {
+      console.error('Failed to fetch releases:', err)
+      setReleases([])
+    }
   }
 
   // Check user session on mount
   useEffect(() => {
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      setIsLoggedIn(!!session)
-      // @ts-expect-error - Assuming user is typed correctly from Supabase, and should have 'user'
-      setUser(session?.user || null)
+      if (supabase) {
+        try {
+          const { data: { session } } = await supabase.auth.getSession()
+          setIsLoggedIn(!!session)
+          // @ts-expect-error - Assuming user is typed correctly from Supabase, and should have 'user'
+          setUser(session?.user || null)
+        } catch (err) {
+          console.error('Session check failed:', err)
+        }
+      }
       fetchReleases() // Fetch releases on component mount
     }
     checkSession()
   }, [])
 
   const handleLogin = async () => {
-    const redirectTo = 
+    if (!supabase) return
+    const redirectTo =
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000'
         : 'https://xr-rancho.vercel.app';
-  
+
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: { redirectTo }
     });
-    
+
     if (error) console.error('Login Error:', error.message);
   };
-  
+
 
   // Handle logout
   const handleLogout = async () => {
+    if (!supabase) return
     await supabase.auth.signOut()
     setIsLoggedIn(false)
     setUser(null)
